@@ -2,14 +2,18 @@
 /api/node_modules
 /client/node_modules
 /client/.pnp
+/client-copy/node_modules
+/client-copy/.pnp
 .pnp.js
 /node_modules
 
 # testing
 /client/coverage
+/client-copy/coverage
 
 # production
 /client/build
+/client-copy/build
 
 # misc
 .DS_Store
