@@ -57,19 +57,6 @@ const Nabvar = () => {
           <li className='head-nav--item'>
             <div className='link head-nav--link'>
               <span className='link--cont'>
-                <span className='link--text'>Контакты</span>
-                <span className='link--icon'>
-                  <svg viewBox="0 0 24 24">
-                    <title></title>
-                    <path class="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fill-rule="evenodd"></path>
-                  </svg>
-                </span>
-              </span>
-            </div>
-          </li>
-          <li className='head-nav--item'>
-            <div className='link head-nav--link'>
-              <span className='link--cont'>
                 <span className='link--text'>Отзывы</span>
                 <span className='link--icon'>
                   <svg viewBox="0 0 24 24">
@@ -93,11 +80,18 @@ const Nabvar = () => {
               </span>
             </div>
           </li>
-        </ul>
-        
+        </ul>       
       </div>
         <div className='contacts'>
           <p>Контакты:</p>
+          <div className='phone-email'>
+            <span>
+              +7 (666) 555-44-33
+            </span>
+            <span>
+              contact@email.com
+            </span>
+          </div>
         </div>
       </div>
       

@@ -125,4 +125,36 @@ const articles = [
     },
 ];
 
-export { employees, articles };
+const feedback = [
+    {
+        id: 1,
+        date: "10.06.23",
+        author: "test author",
+        doctorId: 1,
+        text: "test text",
+    },
+    {
+        id: 2,
+        date: "02.06.23",
+        author: "test author",
+        doctorId: 2,
+        text: "test text",
+    },
+    {
+        id: 3,
+        date: "23.06.23",
+        author: "test author",
+        doctorId: 3,
+        text: "test text",
+    },
+    {
+        id: 4,
+        date: "08.06.23",
+        author: "test author",
+        doctorId: 1,
+        text: "test text",
+    },
+]
+
+
+export { employees, articles, feedback };

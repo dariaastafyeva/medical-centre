@@ -13,6 +13,8 @@ import Footer from "./components/Footer"
 import About from './pages/About';
 import Employees from './pages/Employees';
 import EmployeeProfile from './pages/EmployeeProfile';
+import Services from './pages/Services';
+import Feedback from './pages/Feedback';
 const Layout = () => {
   return (
     <>
@@ -49,6 +51,15 @@ const router = createBrowserRouter([
           }
         ]
       },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/feedback",
+        element: <Feedback />,
+      },
+      
     ]
   },
   {
