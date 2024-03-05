@@ -13,7 +13,7 @@ const DecsriptionSection = () => {
 
                 <button type='button' className='button-Appointment'>Запись</button>
             </div>
-            <img src="dad_child_white.jpg" alt="Dad and Child" />
+            <img src="https://i.pinimg.com/564x/36/cc/a8/36cca88b83b1846acf77f17b10ef62dd.jpg" alt="Dad and Child" />
         </div>
     )
 }

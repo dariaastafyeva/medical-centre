@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 $greyBlue: #f1f2f5;
 $logocolor: #30568b;
-$darkBlue: #2c3e50;
+$darkBlue: #212f3d;
+$contacts: #2c3e50;
 $lightGrey: #ecedeb;
 $commaColor: #fbfcff;
 
@@ -59,14 +61,14 @@ body {
         }
 
         p {
-            font-size: 30%;
+            font-size: 40%;
             margin-left: -160px;
         }
     }
 
     .contacts {
         margin-right: 15px;
-        color: $darkBlue;
+        color: $contacts;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -146,12 +148,25 @@ body {
     margin-left: 20%;
     margin-right: 20%;
 
+
+    h1,
+    h2,
+    h3 {
+        color: $darkBlue;
+    }
+
     h1 {
-        font-size: 350%;
+        font-size: 54px;
+        ;
     }
 
     h2 {
-        font-size: 240%;
+        font-size: 54px;
+    }
+
+    h3 {
+        font-size: 32px;
+        ;
     }
 
     p {
@@ -703,12 +718,11 @@ body {
 
 // SERVICES  
 
-.servisces {
-    margin-left: 20%;
-    margin-right: 20%;
+.services {
+
     margin-bottom: 120px;
 
-    h1{
+    h1 {
         margin: 80px 0;
     }
 
@@ -720,7 +734,7 @@ body {
 
     .services-names-section {
         display: flex;
-        justify-content: space-between;        
+        justify-content: space-between;
     }
 
     .sections-container {
@@ -763,3 +777,36 @@ body {
         }
     }
 }
+
+// ABOUT
+
+.about {
+
+    margin-bottom: 50px;
+
+    .about-service-img-container{
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0;
+
+        img{
+            max-width: 500px;
+            max-height: 280px;
+            min-width: 450px;
+            object-fit: cover;
+        }
+    }
+
+    .about-services-container{
+        display: flex;
+        justify-content: space-between;
+        padding:0 10%;
+
+        .services-container-group{
+            display: flex;
+        }
+    }
+}
+
+
+// EMPLOYEES

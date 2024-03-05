@@ -11,9 +11,9 @@ const Employees = () => {
         return (
             <div className='team-cards'>
                 {elements.map(element => (
-                    <EmployeeCard 
-                    employee={element}
-                    isShowButton = {isShowButton} 
+                    <EmployeeCard
+                        employee={element}
+                        isShowButton={isShowButton}
                     />
                 ))}
             </div>
@@ -23,12 +23,14 @@ const Employees = () => {
 
     return (
         <div className='content--wrapper'>
-            <div className='team-group'>
-                <h1>
-                    Наши специалисты
-                </h1>
-                <h3>Лучшие специалисты города Ярославль</h3>
-                {getMappedCard(employees, isShowButton)}                
+            <div className='employees'>
+                <div className='team-group'>
+                    <h1>
+                        Наши специалисты
+                    </h1>
+                    <h3>Лучшие специалисты города Ярославль</h3>
+                    {getMappedCard(employees, isShowButton)}
+                </div>
             </div>
         </div>
     )

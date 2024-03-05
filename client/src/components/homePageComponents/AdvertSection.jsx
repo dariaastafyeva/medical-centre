@@ -9,7 +9,7 @@ const AdvertSection = () => {
         <button type='button' className='button-Appointment'>Запись</button>
         <button type='button' className='button-About'>Подробнее...</button>
       </div>
-      <img src="dad_child_white.jpg" alt="Dad and Child" />
+      <img src="https://i.pinimg.com/564x/ab/5c/8d/ab5c8de675d0bd9fa1e8a9a22603a1ba.jpg" alt="Dad and Child" />
     </div>
   )
 }
