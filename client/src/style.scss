@@ -572,7 +572,7 @@ body {
             display: flex;
             gap: 30px;
 
-            .specialist-name{
+            .specialist-name {
                 font-weight: bold;
             }
 
@@ -594,9 +594,10 @@ body {
                     pointer-events: none;
                     user-select: none;
                 }
-                                &:hover {
-                                    stroke: #07f;
-                                }
+
+                &:hover {
+                    stroke: #07f;
+                }
 
 
                 .doctors-filter {
@@ -630,7 +631,7 @@ body {
 
                     &:focus {
                         outline: none;
-                        border-color:$logocolor;
+                        border-color: $logocolor;
                         box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
                     }
 
@@ -643,12 +644,13 @@ body {
                 }
             }
 
-            
+
 
         }
-        .leave-feedback-link{
-                color:$logocolor;
-            }
+
+        .leave-feedback-link {
+            color: $logocolor;
+        }
     }
 
     .feedback-items {
@@ -695,6 +697,69 @@ body {
 
                 }
             }
+        }
+    }
+}
+
+// SERVICES  
+
+.servisces {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 120px;
+
+    h1{
+        margin: 80px 0;
+    }
+
+    h2 {
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .services-names-section {
+        display: flex;
+        justify-content: space-between;        
+    }
+
+    .sections-container {
+        display: flex;
+        justify-content: space-between;
+
+        .sections-container--column {
+            margin-right: 150px;
+            display: flex;
+            flex-direction: column;
+
+
+
+            .sections-container--column-block {
+                display: flex;
+
+                .adult-section {
+                    margin-right: 20px;
+                }
+            }
+
+            .service-container {
+                display: flex;
+                margin-bottom: 20px;
+                margin-right: 20px;
+
+                img {
+                    max-width: 90px;
+                    max-height: 90px;
+                }
+
+                p {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        #extra-services {
+            margin-right: 0;
         }
     }
 }

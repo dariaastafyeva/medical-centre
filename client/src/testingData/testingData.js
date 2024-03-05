@@ -131,7 +131,7 @@ const feedback = [
         date: "10.06.23",
         author: "test author",
         doctorId: 1,
-        text: "test text",
+        text: employees[1].name,
         img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
     {
@@ -139,7 +139,7 @@ const feedback = [
         date: "02.06.23",
         author: "test author",
         doctorId: 2,
-        text: "test text",
+        text: employees[2].name,
         img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
     {
@@ -147,7 +147,7 @@ const feedback = [
         date: "23.06.23",
         author: "test author",
         doctorId: 3,
-        text: "test text",
+        text: employees[3].name,
         img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
     {
@@ -155,7 +155,7 @@ const feedback = [
         date: "08.06.23",
         author: "test author",
         doctorId: 1,
-        text: "test text",
+        text: employees[1].name,
         img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
 ]

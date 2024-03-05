@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { employees, feedback } from '../testingData/testingData';
 import Comma from '../components/Comma';
 
 const Feedback = () => {
 
+    const {selectedOption, setSelectedOption} = useState();
+
     const getSpecialistsDropdown = (array) => {
         return (
             <div className='select-wrapper'>
                 <select className="doctors-filter">
-                    {array.map(element => {
-                      
-                        return (
-                            <option value={element.id}>{element.name}</option>
-                        );
+                    {array.map((element, index) => {
+                        if (index === 0) {
+                            return (
+                                <option value="all">Все</option>
+                            )
+                        } else {
+                            return (
+                                <option value={element.id}>{element.name}</option>
+                            );
+                        }
+
                     })}
                 </select>
                 <svg viewBox="0 0 24 24" className="sprites">
