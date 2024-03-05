@@ -132,6 +132,7 @@ const feedback = [
         author: "test author",
         doctorId: 1,
         text: "test text",
+        img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
     {
         id: 2,
@@ -139,6 +140,7 @@ const feedback = [
         author: "test author",
         doctorId: 2,
         text: "test text",
+        img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
     {
         id: 3,
@@ -146,6 +148,7 @@ const feedback = [
         author: "test author",
         doctorId: 3,
         text: "test text",
+        img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
     {
         id: 4,
@@ -153,6 +156,7 @@ const feedback = [
         author: "test author",
         doctorId: 1,
         text: "test text",
+        img: "https://i.pinimg.com/564x/1f/e4/b2/1fe4b22873d29a7babb1f7e5b52efed2.jpg",
     },
 ]
 
