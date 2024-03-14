@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { employees, feedback } from '../testingData/testingData';
-import Comma from '../components/Comma';
+import FeedbackCard from '../components/FeedbackCard';
 
 const Feedback = () => {
 
@@ -38,26 +38,9 @@ const Feedback = () => {
             <div className='feedback-items'>
                 {array.map(element => {
                     return (
-                        <div className='feedback-item'>
-                            <a href='#' className='item-photo'>
-                                <img src={element.img} alt="фото доктора"></img>
-                                <p>{element.name}</p>
-                            </a>
-                            <div className='feedback-item--text-container'>
-                                <Comma />
-                                <div className='feedback-text--container'>
-                                    {/* <p>{element.feedback}</p> */}
-                                    <p>отзыв тест текст </p>
-                                </div>
-
-                                <div className='feedback-author'>
-                                    {/* <p>{element.author}</p> */}
-                                    <p>отзыв тест Имя</p>
-                                    {/* <p>{element.date}</p> */}
-                                    <p>отзыв тест дата</p>
-                                </div>
-                            </div>
-                        </div>
+                        <FeedbackCard 
+                        element={element}
+                        />
                     );
                 })}
             </div>

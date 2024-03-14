@@ -9,7 +9,7 @@ const EmployeeCard = ({ employee, isShowButton }) => {
       <h3>{employee.specialization}</h3>
       {isShowButton && <p>{employee.desc}</p>}
 
-      {isShowButton && <button>Подробнее</button>}
+      {isShowButton && <button className='button-About'>Подробнее</button>}
     </div>
   )
 }
