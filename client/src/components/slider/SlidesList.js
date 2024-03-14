@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { SliderContext } from './Slider'
 import Slide from './Slide';
+import FeedbackBody from '../FeedbackBody'
 
 const SlidesList = () => {
 
@@ -12,7 +13,7 @@ const SlidesList = () => {
             style={{ transform: `translateX(-${slideNumber * 100}%)` }}
         >
             {items.map((slide, index) => (
-                <Slide key={index} data={slide} />
+                <FeedbackBody key={index} element={slide} />
             ))}
         </div>
     )

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-import FeedbackBody from '../components/FeedbackBody';
+// import FeedbackBody from '../components/FeedbackBody';
 import { feedback } from '../../testingData/testingData';
 import PropTypes from "prop-types";
 import Arrows from './Arrows';
@@ -13,23 +13,25 @@ const Slider = ({ width, heigth, autoPlay, autoPlayTime }) => {
 
     const [items, setItems] = useState([]);
     const [slide, setSlide] = useState(0);
-    const [touchPosition, setTouchPosition] = useEffect(null);
+    const [touchPosition, setTouchPosition] = useState(null);
 
     useEffect(() => {
         const loadData = () => {
-            const reviews = feedback.map(element => {
-                return (
-                <li>
-                    <FeedbackBody
-                        element={element}
-                    />
-                </li>);
-            });
-            setItems(reviews);
+            // const reviews = feedback.map(element => {
+            //     return (
+            //     <li>
+            //         <FeedbackBody
+            //             element={element}
+            //         />
+            //     </li>);
+            // });
+            // setItems(reviews);
+            setItems(feedback);
         };
 
         loadData();
     }, []);
+
 
     const changeSlide = (direction = 1) => {
         let slideNumber = 0;
@@ -93,6 +95,7 @@ const Slider = ({ width, heigth, autoPlay, autoPlayTime }) => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
         >
+            
             <SliderContext.Provider
                 value={{
                     goToSlide,
@@ -104,8 +107,9 @@ const Slider = ({ width, heigth, autoPlay, autoPlayTime }) => {
             >
                 <Arrows />
                 <SlidesList />
-                <Dots />
+                <Dots /> 
             </SliderContext.Provider>
+           
         </div>
     )
 }

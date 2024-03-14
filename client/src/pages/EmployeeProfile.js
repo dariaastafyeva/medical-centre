@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { employees, feedback } from '../testingData/testingData';
 import FeedbackBody from '../components/FeedbackBody';
+import Slider from '../components/slider/Slider';
 
 const EmployeeProfile = () => {
 
@@ -156,7 +157,7 @@ const EmployeeProfile = () => {
                         <h2>Отзывы</h2>
                         <div class="slider">
 
-                            <a href="#0" class="next control">Next</a>
+                            {/* <a href="#0" class="next control">Next</a>
                             <a href="#0" class="prev control">Prev</a>
 
 
@@ -167,7 +168,9 @@ const EmployeeProfile = () => {
 
                             <div class="slider_option">
                                 <button class="btn">Autoplay</button>
-                            </div>
+                            </div> */}
+
+                            <Slider />
 
                         </div>
                     </section>

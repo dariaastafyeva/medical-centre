@@ -220,6 +220,7 @@ nav {
         }
     }
 
+
     .hero-slider {
         display: flex;
         padding: 30px;
@@ -1004,27 +1005,35 @@ nav {
                 overflow: hidden;
                 position: relative;
 
-                & .slide-list {
+                .slide-list {
                     display: flex;
                     height: 100%;
                     transition: transform 0.5s ease-in-out;
                     width: 100%;
 
-                    & .slide {
+                    .feedback-item--text-container {
                         flex: 1 0 100%;
                         position: relative;
+                        background-color: $greyBlue;
+                        border-radius: 20px;
 
-                        & .slide-image {
-                            display: flex;
-                            margin: 0 auto;
-                            max-height: 300px;
-                            width: 100%;
-                            object-fit: contain;
+                        .feedback-item--text-container-inner{
+                            padding: 60px;
                         }
 
-                        & .slide-title {
-                            text-align: center;
-                            margin-top: 10px;
+                        .comma {
+                            fill: $commaColor;
+                        }
+
+                        .feedback-text--container {
+                            position: absolute;
+                            padding-top: 20px;
+                            padding-left: 20px;
+                        }
+
+                        .feedback-author {
+                            text-align: right;
+
                         }
                     }
                 }
