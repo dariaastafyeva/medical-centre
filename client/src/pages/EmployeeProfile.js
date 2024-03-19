@@ -156,22 +156,7 @@ const EmployeeProfile = () => {
                     <section className='employee-detail-section'>
                         <h2>Отзывы</h2>
                         <div class="slider">
-
-                            {/* <a href="#0" class="next control">Next</a>
-                            <a href="#0" class="prev control">Prev</a>
-
-
-                            <ul>
-                                {getMappedFeedback(feedback)}
-                            </ul>
-
-
-                            <div class="slider_option">
-                                <button class="btn">Autoplay</button>
-                            </div> */}
-
                             <Slider />
-
                         </div>
                     </section>
                     <section className='employee-detail-section'>
