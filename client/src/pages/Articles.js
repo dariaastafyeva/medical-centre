@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import EmployeeCard from '../components/EmployeeCard';
-import { employees } from '../testingData/testingData';
+import Article from '../components/Article';
 
 
-const Employees = () => {
+const Articles = () => {
 
-    const [employees, setEmployees] = useState([]);
+    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get("/employees");
-                setEmployees(res.data);
+                const res = await axios.get("/articles");
+                setArticles(res.data);
             } catch (error) {
                 console.log(error);
             }
         }
         fetchData();
-    }, [])
+    }, []);
+    console.log(articles);
 
     const isShowButton = true;
 
@@ -26,8 +26,8 @@ const Employees = () => {
         return (
             <div className='team-cards'>
                 {elements.map(element => (
-                    <EmployeeCard
-                        employee={element}
+                    <Article
+                        article={element}
                         isShowButton={isShowButton}
                     />
                 ))}
@@ -41,14 +41,14 @@ const Employees = () => {
             <div className='employees'>
                 <div className='team-group'>
                     <h1>
-                        Наши специалисты
+                        Статьи
                     </h1>
-                    <h3>Лучшие специалисты города Ярославль</h3>
-                    {getMappedCard(employees, isShowButton)}
+                    <h3>Полезные знания для вашего здоровья</h3>
+                    {getMappedCard(articles, isShowButton)}
                 </div>
             </div>
         </div>
     )
 }
 
-export default Employees
+export default Articles

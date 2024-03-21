@@ -15,6 +15,8 @@ import Employees from './pages/Employees';
 import EmployeeProfile from './pages/EmployeeProfile';
 import Services from './pages/Services';
 import Feedback from './pages/Feedback';
+import Articles from './pages/Articles';
+import ArticleProfile from './pages/ArticleProfile';
 const Layout = () => {
   return (
     <>
@@ -48,6 +50,19 @@ const router = createBrowserRouter([
           {
             path: "/employees/:id",
             element: <EmployeeProfile />
+          }
+        ]
+      },
+      {
+        path: "/articles",
+        children: [
+          {
+            index: true,
+            element: <Articles />,
+          },
+          {
+            path: "/articles/:id",
+            element: <ArticleProfile />
           }
         ]
       },

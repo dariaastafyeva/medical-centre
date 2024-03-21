@@ -6,6 +6,7 @@ import TeamGroup from '../components/homePageComponents/TeamGroup'
 import Articles from '../components/homePageComponents/Articles'
 import SubscribeForm from '../components/homePageComponents/SubscribeForm'
 import Booking from '../components/homePageComponents/Booking'
+import Login from './Login'
 
 const Home = () => {
   return (

@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from "axios"
 
-import { articles } from '../../testingData/testingData'
 import Article from '../Article';
+import { Link } from 'react-router-dom';
 
 const Articles = () => {
     const componentName = "Article";
     const propName = "article";
     const numberOfElements = 3;
+
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get("/articles");
+                setArticles(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [])
 
     const getMappedCard = (elements) => {
         return (
@@ -27,7 +42,10 @@ const Articles = () => {
             <h1>Будьте здоровы вместе с нами</h1>
             <p>Получите самые свежие советы и информацию о здоровье из нашего блога.</p>
             {getMappedCard(articles)}
-            <button type='button' className='button-About'>Читать все</button>
+            <Link to="/articles">
+                <button type='button' className='button-About'>Читать все</button>
+            </Link>
+            
         </div>
     )
 }

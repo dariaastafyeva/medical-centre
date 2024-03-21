@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const EmployeeCard = ({ employee, isShowButton }) => {
 
@@ -9,7 +10,12 @@ const EmployeeCard = ({ employee, isShowButton }) => {
       <h3>{employee.specialization}</h3>
       {isShowButton && <p>{employee.desc}</p>}
 
-      {isShowButton && <button className='button-About'>Подробнее</button>}
+      {isShowButton &&
+        <Link to={`/employees/${employee.id}`}>
+          <button className='button-About'>Подробнее</button>
+        </Link>
+
+      }
     </div>
   )
 }

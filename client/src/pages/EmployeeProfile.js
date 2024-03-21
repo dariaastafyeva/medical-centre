@@ -1,26 +1,77 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import axios from "axios";
 import { employees, feedback } from '../testingData/testingData';
 import FeedbackBody from '../components/FeedbackBody';
 import Slider from '../components/slider/Slider';
 
+const EDUCATION = "education";
+const EXPERIENCE = "experience";
+
 const EmployeeProfile = () => {
 
+    const navigate = useNavigate();
     const location = useLocation();
     const employeeId = location.pathname.split('/')[2];
-    const employee = employees[employeeId];
 
-    const getMappedFeedback = (array) => {
-        return (
-            array.map(element => {
-                return (<li>
-                    <FeedbackBody
-                        element={element}
-                    />
-                </li>);
-            })
-        );
-    }
+    const [employee, setEmployee] = useState({});
+    const [experiences, setExperiences] = useState({});
+
+    useEffect(() => {
+        const fetchEmployee = async () => {
+            try {
+                const res = await axios.get(`/employees/${employeeId}`);
+                setEmployee(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        const fetchExperience = async () => {
+            try {
+                const res = await axios.get(`/experiences/${employeeId}`);
+                setExperiences(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        const fetchData = async () => {
+            fetchEmployee();
+            fetchExperience();
+        }
+        fetchData();
+    }, [employeeId])
+
+    console.log(employee)
+
+    const getExperienceList = (object, type) => {
+        // return (
+        //     {for(const[key, value] of Object.entries(object)){
+
+        //     }}
+
+        //     array.map(element => {
+        //         return (
+        //             type === element.type && (<div className='employee-detail--container'>
+        //                 <p className='text-year'>element.yearInterval</p>
+        //                 <p className='text-info'>element.place</p>
+        //             </div>)
+        //         )
+        //     })
+        // );
+
+    };
+
+    // const getMappedFeedback = (array) => {
+    //     return (
+    //         array.map(element => {
+    //             return (<li>
+    //                 <FeedbackBody
+    //                     element={element}
+    //                 />
+    //             </li>);
+    //         })
+    //     );
+    // }
 
     return (
         <div className='content--wrapper'>
@@ -83,10 +134,7 @@ const EmployeeProfile = () => {
                         <div className='employee-detail-section--block'>
                             <p>Образование:</p>
                             <div className='employee-detail-wrapper'>
-                                <div className='employee-detail--container'>
-                                    <p className='text-year'>1998 - 2005</p>
-                                    <p className='text-info'>ЯГМУ</p>
-                                </div>
+                                {getExperienceList(experiences, EDUCATION)}
                             </div>
                         </div>
                         <div className='employee-detail-section--block'>
