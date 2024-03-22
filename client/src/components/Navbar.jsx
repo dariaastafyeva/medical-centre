@@ -12,7 +12,7 @@ const Nabvar = () => {
           <div className='logo'>
             <Link to="/" >
               <Logo />
-            </Link>   
+            </Link>
           </div>
           <div className='name-container'>
             <h1 className='name'>МЕДИЦИНСКИЙ ЦЕНТР</h1>
@@ -20,59 +20,66 @@ const Nabvar = () => {
           </div>
           <div className='head-nav'>
             <ul className='head-nav--list'>
-              <li className='head-nav--item'>
-                <div className='link head-nav--link'>
-                  <span className='link--cont'>
-                    <span className='link--text'>О&nbsp;компании</span>
-                    <span className='link--icon'>
-                      <svg width='20px' viewBox="0 0 24 24">
-                        <title></title>
-                        <path class="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fill-rule="evenodd"></path>
-                      </svg>
+              <Link to="/about">
+                <li className='head-nav--item'>
+                  <div className='link head-nav--link'>
+                    <span className='link--cont'>
+                      <span className='link--text'>О&nbsp;компании</span>
+                      <span className='link--icon'>
+                        <svg width='20px' viewBox="0 0 24 24">
+                          <title></title>
+                          <path className="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fillRule="evenodd"></path>
+                        </svg>
+                      </span>
                     </span>
-                  </span>
-                </div>
-              </li>
-              <li className='head-nav--item'>
-                <div className='link head-nav--link'>
-                  <span className='link--cont'>
-                    <span className='link--text'>Врачи</span>
-                    <span className='link--icon'>
-                      <svg viewBox="0 0 24 24">
-                        <title></title>
-                        <path class="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fill-rule="evenodd"></path>
-                      </svg>
+                  </div>
+                </li>
+              </Link>
+              <Link to="/employees">
+                <li className='head-nav--item'>
+                  <div className='link head-nav--link'>
+                    <span className='link--cont'>
+                      <span className='link--text'>Врачи</span>
+                      <span className='link--icon'>
+                        <svg viewBox="0 0 24 24">
+                          <title></title>
+                          <path className="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fillRule="evenodd"></path>
+                        </svg>
+                      </span>
                     </span>
-                  </span>
-                </div>
-              </li>
-              <li className='head-nav--item'>
-                <div className='link head-nav--link'>
-                  <span className='link--cont'>
-                    <span className='link--text'>Услуги</span>
-                    <span className='link--icon'>
-                      <svg viewBox="0 0 24 24">
-                        <title></title>
-                        <path class="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fill-rule="evenodd"></path>
-                      </svg>
+                  </div>
+                </li>
+              </Link>
+              <Link to="/services">
+                <li className='head-nav--item'>
+                  <div className='link head-nav--link'>
+                    <span className='link--cont'>
+                      <span className='link--text'>Услуги</span>
+                      <span className='link--icon'>
+                        <svg viewBox="0 0 24 24">
+                          <title></title>
+                          <path className="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fillRule="evenodd"></path>
+                        </svg>
+                      </span>
                     </span>
-                  </span>
-                </div>
-              </li>
-              <li className='head-nav--item'>
-                <div className='link head-nav--link'>
-                  <span className='link--cont'>
-                    <span className='link--text'>Отзывы</span>
-                    <span className='link--icon'>
-                      <svg viewBox="0 0 24 24">
-                        <title></title>
-                        <path class="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fill-rule="evenodd"></path>
-                      </svg>
+                  </div>
+                </li>
+              </Link>
+              <Link to="/feedback">
+                <li className='head-nav--item'>
+                  <div className='link head-nav--link'>
+                    <span className='link--cont'>
+                      <span className='link--text'>Отзывы</span>
+                      <span className='link--icon'>
+                        <svg viewBox="0 0 24 24">
+                          <title></title>
+                          <path className="i-icon _fill" d="M7 10l5 5 5-5z" fill="#2C3E50" fillRule="evenodd"></path>
+                        </svg>
+                      </span>
                     </span>
-                  </span>
-                </div>
-              </li>
-
+                  </div>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

@@ -14,18 +14,18 @@ const Feedback = () => {
                     {array.map((element, index) => {
                         if (index === 0) {
                             return (
-                                <option value="all">Все</option>
+                                <option value="all" key={index}>Все</option>
                             )
                         } else {
                             return (
-                                <option value={element.id}>{element.name}</option>
+                                <option value={element.id} key={index}>{element.name}</option>
                             );
                         }
 
                     })}
                 </select>
                 <svg viewBox="0 0 24 24" className="sprites">
-                    <path class="i-icon _fill" d="M7 10l5 5 5-5z" fill-rule="evenodd"></path>
+                    <path className="i-icon _fill" d="M7 10l5 5 5-5z" fillRule="evenodd"></path>
                 </svg>
 
             </div>
@@ -36,10 +36,11 @@ const Feedback = () => {
     const getFeedbackByFilter = (array) => {
         return (
             <div className='feedback-items'>
-                {array.map(element => {
+                {array.map((element, index) => {
                     return (
                         <FeedbackCard 
                         element={element}
+                        key={index}
                         />
                     );
                 })}
@@ -96,3 +97,4 @@ const Feedback = () => {
 }
 
 export default Feedback
+

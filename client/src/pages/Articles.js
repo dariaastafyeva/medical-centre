@@ -18,7 +18,7 @@ const Articles = () => {
         }
         fetchData();
     }, []);
-    console.log(articles);
+
 
     const isShowButton = true;
 

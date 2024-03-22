@@ -4,7 +4,6 @@ const getEmployees = (req, res) => {
     const q = "SELECT * FROM tbl_employees";
 
     db.query(q, (err, data) => {
-        console.log(data);
         if (err) return res.send(err);
 
         return res.status(200).json(data);
@@ -12,7 +11,7 @@ const getEmployees = (req, res) => {
 };
 
 const getEmployee = (req, res) => {
-    const q = "SELECT `name`, `specialization`, `category`, `desc`, `img` " +
+    const q = "SELECT `name`, `specialization`, `category`, `desc`, `img`, `workExperience`, `skills` " +
     "FROM tbl_employees " +
     "WHERE id=?";
 
@@ -23,8 +22,4 @@ const getEmployee = (req, res) => {
     });
 };
 
-const getEmployeeFeedbacks = (req, res) => {
-    res.json("from controller!");
-};
-
-export { getEmployees, getEmployee, getEmployeeFeedbacks };
+export { getEmployees, getEmployee };

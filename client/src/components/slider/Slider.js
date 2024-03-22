@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-
+import axios from 'axios';
 // import FeedbackBody from '../components/FeedbackBody';
 import { feedback } from '../../testingData/testingData';
 import PropTypes from "prop-types";
@@ -9,27 +9,23 @@ import SlidesList from './SlidesList';
 
 export const SliderContext = createContext();
 
-const Slider = ({ width, heigth, autoPlay, autoPlayTime }) => {
+const Slider = ({ dataSource, width, heigth, autoPlay, autoPlayTime }) => {
 
     const [items, setItems] = useState([]);
     const [slide, setSlide] = useState(0);
     const [touchPosition, setTouchPosition] = useState(null);
 
     useEffect(() => {
-        const loadData = () => {
-            // const reviews = feedback.map(element => {
-            //     return (
-            //     <li>
-            //         <FeedbackBody
-            //             element={element}
-            //         />
-            //     </li>);
-            // });
-            // setItems(reviews);
-            setItems(feedback);
-        };
 
-        loadData();
+        const fetchExperience = async () => {
+            try {
+                const res = await axios.get(`/feedbacks/${dataSource}`);
+                setItems(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchExperience();
     }, []);
 
 
@@ -95,7 +91,7 @@ const Slider = ({ width, heigth, autoPlay, autoPlayTime }) => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
         >
-            
+
             <SliderContext.Provider
                 value={{
                     goToSlide,
@@ -107,9 +103,9 @@ const Slider = ({ width, heigth, autoPlay, autoPlayTime }) => {
             >
                 <Arrows />
                 <SlidesList />
-                <Dots /> 
+                <Dots />
             </SliderContext.Provider>
-           
+
         </div>
     )
 }

@@ -31,7 +31,7 @@ const Footer = () => {
         <div className='subscribe-form'>
           <h3>Подписаться</h3>
           <p>Присоединяйтесь к нашему сообществу, чтобы получать обновления и эксклюзивные предложения.</p>
-          <label for='email'>Адрес вашей электронной почты</label>
+          <label htmlFor='email'>Адрес вашей электронной почты</label>
           <div className='input-group'>
             <input type='text' name='email'></input>
             <button className='button-Appointment'>Присоединиться</button>

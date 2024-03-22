@@ -7,6 +7,9 @@ import Slider from '../components/slider/Slider';
 
 const EDUCATION = "education";
 const EXPERIENCE = "experience";
+const EMPLOYEE = "employee"
+const DIAGNOSTIC = "diagnostic";
+const SKILLS = "skills";
 
 const EmployeeProfile = () => {
 
@@ -15,7 +18,8 @@ const EmployeeProfile = () => {
     const employeeId = location.pathname.split('/')[2];
 
     const [employee, setEmployee] = useState({});
-    const [experiences, setExperiences] = useState({});
+    const [experiences, setExperiences] = useState([]);
+    const [services, setServices] = useState([]);
 
     useEffect(() => {
         const fetchEmployee = async () => {
@@ -34,32 +38,72 @@ const EmployeeProfile = () => {
                 console.log(error);
             }
         }
+        const fetchServices = async () => {
+            try {
+                const res = await axios.get(`/services/${employeeId}`);
+                setServices(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
         const fetchData = async () => {
             fetchEmployee();
             fetchExperience();
+            fetchServices();
         }
         fetchData();
     }, [employeeId])
 
-    console.log(employee)
-
-    const getExperienceList = (object, type) => {
-        // return (
-        //     {for(const[key, value] of Object.entries(object)){
-
-        //     }}
-
-        //     array.map(element => {
-        //         return (
-        //             type === element.type && (<div className='employee-detail--container'>
-        //                 <p className='text-year'>element.yearInterval</p>
-        //                 <p className='text-info'>element.place</p>
-        //             </div>)
-        //         )
-        //     })
-        // );
-
+    const getExperienceList = (array, elementClassName, type) => {
+        return (
+            <>
+                {array.map((object, index) => (
+                    object.type === type && <div className={`${elementClassName}--container`} key={index}>
+                        <p className='text-year'>{object.yearInterval}</p>
+                        <p className='text-info'>{object.place}</p>
+                    </div>
+                ))}
+            </>
+        );
     };
+
+    const getElementsList = (array, elementClassName) => {
+        return (
+            <ul className={elementClassName}>
+                {array.map((element, index) => (
+                    < li key={index} className={`${elementClassName}--element`}>
+                        {element}
+                    </li>
+                ))}
+            </ul>
+        );
+    };
+
+    const createServicesTable = (array) => {
+        return(
+            <div className='service-price-container'>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Услуга</th>
+                            <th>Длительность, мин.</th>
+                            <th>Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {array.map((element, index) => (
+                            <tr key={index}>
+                                <td>{element.name[0].toUpperCase() + element.name.slice(1)}</td>
+                                <td>{element.duration}</td>
+                                <td>{element.price}, руб.</td>
+                            </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+
 
     // const getMappedFeedback = (array) => {
     //     return (
@@ -94,7 +138,7 @@ const EmployeeProfile = () => {
                                     Стаж:
                                 </span>
                                 <span className='employee-specification--value'>
-                                    {employee.experience}
+                                    {employee.workExperience}
                                 </span>
                             </li>
                             <li className='employee-specification'>
@@ -106,7 +150,6 @@ const EmployeeProfile = () => {
                                 </span>
                             </li>
                         </ul>
-                        <p className='doctor-desc'>{employee.desc}</p>
                     </div>
                     <img className='doctor-photo' alt="Фото доктора" src={employee.img}></img>
                 </div>
@@ -134,20 +177,13 @@ const EmployeeProfile = () => {
                         <div className='employee-detail-section--block'>
                             <p>Образование:</p>
                             <div className='employee-detail-wrapper'>
-                                {getExperienceList(experiences, EDUCATION)}
+                                {getExperienceList(experiences, EMPLOYEE, EDUCATION)}
                             </div>
                         </div>
                         <div className='employee-detail-section--block'>
                             <p>Опыт работы:</p>
                             <div className='employee-detail-wrapper'>
-                                <div className='employee-detail--container'>
-                                    <p className='text-year'>2006 - 2010</p>
-                                    <p className='text-info'>Государственный областной перинатальный центр</p>
-                                </div>
-                                <div className='employee-detail--container'>
-                                    <p className='text-year'>2011 - 2024</p>
-                                    <p className='text-info'>Академия им. Пастухова</p>
-                                </div>
+                                {getExperienceList(experiences, EMPLOYEE, EXPERIENCE)}
                             </div>
                         </div>
 
@@ -155,56 +191,30 @@ const EmployeeProfile = () => {
                     <section className='employee-detail-section'>
                         <h2>Лечение и диагностика заболеваний:</h2>
                         <div className='diagnostics-container'>
-                            <p className='diagnoctic'>Описание заболеваний/эстетических услуг, на которых специализиуется доктор</p>
+                            {
+                                employee.desc && getElementsList(employee.desc?.split(','), DIAGNOSTIC)
+                            }
                         </div>
                     </section>
                     <section className='employee-detail-section'>
                         <h2>Умения и навыки:</h2>
                         <div className='skills-container'>
-                            <p className='skill'>Умение/навык 1</p>
-                            <p className='skill'>Умение/навык 1</p>
-                            <p className='skill'>Умение/навык 1</p>
-                            <p className='skill'>Умение/навык 1</p>
-                            <p className='skill'>Умение/навык 1</p>
-                            <p className='skill'>Умение/навык 1</p>
+                            {employee.skills && getElementsList(employee.skills?.split(','), SKILLS)}
                         </div>
                     </section>
                     <section className='employee-detail-section'>
                         <h2>Цены*</h2>
                         <div className='service-price-container'>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Услуга</th>
-                                        <th>Цена</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Полное наименование Услуги 1</td>
-                                        <td>Цена, руб</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Полное наименование Услуги 2</td>
-                                        <td>Цена, руб</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Полное наименование Услуги 3</td>
-                                        <td>Цена, руб</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Полное наименование Услуги 4</td>
-                                        <td>Цена, руб</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            {createServicesTable(services)}
                         </div>
                         <p>*Фактическая цена услуги может варьироваться в зависимости от конкретных медицинских показаний и потребностей пациента</p>
                     </section>
                     <section className='employee-detail-section'>
                         <h2>Отзывы</h2>
-                        <div class="slider">
-                            <Slider />
+                        <div className="slider">
+                            <Slider
+                                dataSource={employeeId}
+                            />
                         </div>
                     </section>
                     <section className='employee-detail-section'>

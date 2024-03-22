@@ -8,8 +8,6 @@ const EmployeeCard = ({ employee, isShowButton }) => {
       <img src={employee.img} alt='Фото сотрудника'></img>
       <h2>{employee.name}</h2>
       <h3>{employee.specialization}</h3>
-      {isShowButton && <p>{employee.desc}</p>}
-
       {isShowButton &&
         <Link to={`/employees/${employee.id}`}>
           <button className='button-About'>Подробнее</button>
