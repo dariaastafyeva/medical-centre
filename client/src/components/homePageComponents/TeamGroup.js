@@ -39,12 +39,12 @@ const TeamGroup = () => {
             <h1>
                 Наша команда
             </h1>
-            <h3>Познакомьтесь с нашей командой специалистов</h3>
+            <p>Познакомьтесь с нашей командой специалистов</p>
             {getMappedCard(employees, isShowButton)}
             <Link to="/employees">
                 <button type='button' className='button-About' id='all-team'>Все специалисты</button>
             </Link>
-            <h2>Мы принимаем на работу!</h2>
+            <h3>Мы принимаем на работу!</h3>
             <p>Если вы хотите присоединиться к нашей комнате, свяжитесь с нами:</p>
             <button className='button-About'>Связаться</button>
         </div>

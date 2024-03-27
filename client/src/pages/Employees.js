@@ -43,7 +43,7 @@ const Employees = () => {
                     <h1>
                         Наши специалисты
                     </h1>
-                    <h3>Лучшие специалисты города Ярославль</h3>
+                    <h4>Лучшие специалисты города Ярославль</h4>
                     {getMappedCard(employees, isShowButton)}
                 </div>
             </div>

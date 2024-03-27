@@ -71,7 +71,7 @@ const EmployeeProfile = () => {
         return (
             <ul className={elementClassName}>
                 {array.map((element, index) => (
-                    < li key={index} className={`${elementClassName}--element`}>
+                    < li key={index} className="list-element">
                         {element}
                     </li>
                 ))}
@@ -80,7 +80,7 @@ const EmployeeProfile = () => {
     };
 
     const createServicesTable = (array) => {
-        return(
+        return (
             <div className='service-price-container'>
                 <table className="table">
                     <thead>
@@ -97,13 +97,24 @@ const EmployeeProfile = () => {
                                 <td>{element.duration}</td>
                                 <td>{element.price}, руб.</td>
                             </tr>
-                    ))}
+                        ))}
                     </tbody>
                 </table>
             </div>
         )
     }
 
+    const getNewNameFormat = () => {
+        const nameArray = employee.name?.split(' ');
+        return (
+            <>
+                {nameArray && <h1>{`${nameArray[0]} ${nameArray[1]}`}
+                    <br></br>
+                    {nameArray[2]}
+                </h1>}
+            </>
+        )
+    }
 
     // const getMappedFeedback = (array) => {
     //     return (
@@ -122,7 +133,7 @@ const EmployeeProfile = () => {
             <div className='profile'>
                 <div className='employee-banner'>
                     <div className='employee-content'>
-                        <h1>{employee.name}</h1>
+                        <h1>{getNewNameFormat()}</h1>
                         <br></br>
                         <ul className='employee-specifications'>
                             <li className='employee-specification'>
