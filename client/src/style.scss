@@ -18,6 +18,7 @@ body,
     height: 100%;
     width: 100%;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -188,11 +189,12 @@ nav {
     h4 {
         font-size: 20px;
         font-family: "Tilda Sans",
-                Arial,
-                sans-serif;
+            Arial,
+            sans-serif;
     }
 
-    p, li {
+    p,
+    li {
         font-family: "Tilda Sans",
             Arial,
             sans-serif;
@@ -209,8 +211,8 @@ nav {
 
     button {
         font-family: "Tilda Sans",
-                Arial,
-                sans-serif;
+            Arial,
+            sans-serif;
         width: max-content;
         padding: 20px 20px;
         margin-right: 16px;
@@ -834,7 +836,7 @@ nav {
 
     margin-bottom: 50px;
 
-    .subheader{
+    .subheader {
         text-transform: none;
         // font-size: 28px;
     }
@@ -889,7 +891,8 @@ nav {
 
     .employee-banner {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 100px;
 
         .employee-content {
             display: flex;
@@ -914,7 +917,7 @@ nav {
                     }
 
                     .employee-specification--name {
-                        flex: 0 0 15%;
+                        flex: 0 0 25%;
                         color: grey;
                     }
                 }
@@ -961,6 +964,25 @@ nav {
         margin-top: 120px;
 
         .employee-detail-section {
+            .list-element {
+                    padding-left: 50px;
+                    margin-bottom: 20px;
+                    // list-style-image: url("../public/leaf.png");
+                    background: url('../public/leaf.png') no-repeat left center;
+                    background-size: 30px;
+                    // padding: 5px 10px 5px 25px;
+                    // padding-right: 5px;
+                    padding-top: 10px;
+                    list-style: none;
+                    margin: 0;
+                    vertical-align: middle;
+            
+                }
+
+            .diagnostics-container {
+
+                
+            }
 
             .employee-detail-section--block {
                 display: flex;
@@ -984,7 +1006,8 @@ nav {
 
             }
 
-            .service-price-container {
+            .service-price-container,
+            .schedule-container {
                 .table {
                     width: 100%;
                     border: none;

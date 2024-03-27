@@ -7,7 +7,7 @@ import { Logo } from './Logo.js'
 const Nabvar = () => {
   return (
     <nav>
-      <div className='navbar-container'>
+      <div className='navbar-container' id="navbar">
         <div className='navbar-container-left-side'>
           <div className='logo'>
             <Link to="/" >

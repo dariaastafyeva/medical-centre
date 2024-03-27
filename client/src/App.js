@@ -3,6 +3,7 @@ import {
   RouterProvider,
   Outlet
 } from "react-router-dom";
+import ScrollToTop from "react-scroll-to-top";
 
 import "./style.scss"
 import Home from "./pages/Home"
@@ -17,12 +18,16 @@ import Services from './pages/Services';
 import Feedback from './pages/Feedback';
 import Articles from './pages/Articles';
 import ArticleProfile from './pages/ArticleProfile';
+
+
+
 const Layout = () => {
   return (
     <>
       <Navbar />
       <Outlet />
       <Footer />
+      <ScrollToTop smooth />
     </>
   )
 }

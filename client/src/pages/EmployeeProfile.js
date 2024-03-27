@@ -20,6 +20,7 @@ const EmployeeProfile = () => {
     const [employee, setEmployee] = useState({});
     const [experiences, setExperiences] = useState([]);
     const [services, setServices] = useState([]);
+    const [schedule, setSchedule] = useState([]);
 
     useEffect(() => {
         const fetchEmployee = async () => {
@@ -46,10 +47,19 @@ const EmployeeProfile = () => {
                 console.log(error);
             }
         }
+        const fetchSchedule = async () => {
+            try {
+                const res = await axios.get(`/schedule/${employeeId}`);
+                setSchedule(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
         const fetchData = async () => {
             fetchEmployee();
             fetchExperience();
             fetchServices();
+            fetchSchedule();
         }
         fetchData();
     }, [employeeId])
@@ -108,32 +118,53 @@ const EmployeeProfile = () => {
         const nameArray = employee.name?.split(' ');
         return (
             <>
-                {nameArray && <h1>{`${nameArray[0]} ${nameArray[1]}`}
+                {nameArray && <h1>{nameArray[0]}
                     <br></br>
-                    {nameArray[2]}
+                    {`${nameArray[1]} ${nameArray[2]}`}
                 </h1>}
             </>
         )
     }
 
-    // const getMappedFeedback = (array) => {
-    //     return (
-    //         array.map(element => {
-    //             return (<li>
-    //                 <FeedbackBody
-    //                     element={element}
-    //                 />
-    //             </li>);
-    //         })
-    //     );
-    // }
+    const getScheduleTable = (array) => {
+        return (
+            <div className='schedule-container'>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>День недели</th>
+                            <th>Время работы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {array.map((element, index) => (
+                            <tr key={index}>
+                                <td>{element.dayOfWeek[0].toUpperCase() + element.dayOfWeek.slice(1)}</td>
+                                <td>{element.from && element.from} - {element.to && element.to}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+
+    const getYearsSpelling = (years) =>{
+        if (years !== 11 && years % 10 === 1){
+            return "год"
+        }
+        if (years !== 11 && years % 10 < 5){
+            return "года"
+        }
+        return "лет"
+    }
 
     return (
         <div className='content--wrapper'>
             <div className='profile'>
                 <div className='employee-banner'>
                     <div className='employee-content'>
-                        <h1>{getNewNameFormat()}</h1>
+                        {getNewNameFormat()}
                         <br></br>
                         <ul className='employee-specifications'>
                             <li className='employee-specification'>
@@ -149,7 +180,7 @@ const EmployeeProfile = () => {
                                     Стаж:
                                 </span>
                                 <span className='employee-specification--value'>
-                                    {employee.workExperience}
+                                    {`${employee.workExperience} ${getYearsSpelling(employee.workExperience)}`}
                                 </span>
                             </li>
                             <li className='employee-specification'>
@@ -160,30 +191,38 @@ const EmployeeProfile = () => {
                                     {employee.category}
                                 </span>
                             </li>
+                            <li className='employee-specification'>
+                                <span className='employee-specification--name'>
+                                    Ведёт приём:
+                                </span>
+                                <span className='employee-specification--value'>
+                                    {employee.patientType}
+                                </span>
+                            </li>
                         </ul>
                     </div>
                     <img className='doctor-photo' alt="Фото доктора" src={employee.img}></img>
                 </div>
                 <ul className='page-sections--items'>
                     <li className='page-section--item'>
-                        <a className='page-section--link' href="#">Образование и опыт работы</a>
+                        <a className='page-section--link' href="#education">Образование и опыт работы</a>
                     </li>
                     <li className='page-section--item'>
-                        <a className='page-section--link' href="#">Лечение</a>
+                        <a className='page-section--link' href="#cure">Лечение</a>
                     </li>
                     <li className='page-section--item'>
-                        <a className='page-section--link' href="#">Цены</a>
+                        <a className='page-section--link' href="#price">Цены</a>
                     </li>
                     <li className='page-section--item'>
-                        <a className='page-section--link' href="#">Отзывы</a>
+                        <a className='page-section--link' href="#feedback">Отзывы</a>
                     </li>
                     <li className='page-section--item'>
-                        <a className='page-section--link' href="#">Расписание</a>
+                        <a className='page-section--link' href="#schedule">Расписание</a>
                     </li>
                 </ul>
 
                 <div className='employee-detail'>
-                    <section className='employee-detail-section'>
+                    <section className='employee-detail-section' id="education">
                         <h2>Образование и опыт работы</h2>
                         <div className='employee-detail-section--block'>
                             <p>Образование:</p>
@@ -199,7 +238,7 @@ const EmployeeProfile = () => {
                         </div>
 
                     </section>
-                    <section className='employee-detail-section'>
+                    <section className='employee-detail-section' id="cure">
                         <h2>Лечение и диагностика заболеваний:</h2>
                         <div className='diagnostics-container'>
                             {
@@ -213,14 +252,14 @@ const EmployeeProfile = () => {
                             {employee.skills && getElementsList(employee.skills?.split(','), SKILLS)}
                         </div>
                     </section>
-                    <section className='employee-detail-section'>
+                    <section className='employee-detail-section' id="price">
                         <h2>Цены*</h2>
                         <div className='service-price-container'>
                             {createServicesTable(services)}
                         </div>
                         <p>*Фактическая цена услуги может варьироваться в зависимости от конкретных медицинских показаний и потребностей пациента</p>
                     </section>
-                    <section className='employee-detail-section'>
+                    <section className='employee-detail-section' id="feedback">
                         <h2>Отзывы</h2>
                         <div className="slider">
                             <Slider
@@ -228,8 +267,9 @@ const EmployeeProfile = () => {
                             />
                         </div>
                     </section>
-                    <section className='employee-detail-section'>
+                    <section className='employee-detail-section' id="schedule">
                         <h2>Расписание</h2>
+                        {getScheduleTable(schedule)}
                     </section>
                 </div>
             </div>

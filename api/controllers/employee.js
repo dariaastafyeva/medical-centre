@@ -11,7 +11,7 @@ const getEmployees = (req, res) => {
 };
 
 const getEmployee = (req, res) => {
-    const q = "SELECT `name`, `specialization`, `category`, `desc`, `img`, `workExperience`, `skills` " +
+    const q = "SELECT `name`, `specialization`, `category`, `desc`, `img`, `workExperience`, `skills`, `patientType` " +
     "FROM tbl_employees " +
     "WHERE id=?";
 
