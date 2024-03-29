@@ -37,7 +37,7 @@ const Articles = () => {
 
 
     return (
-        <div className='articles'>
+        <div className='articles-home'>
             <p className='section-name'>Статьи</p>
             <h1>Будьте здоровы вместе с нами</h1>
             <p>Получите самые свежие советы и информацию о здоровье из нашего блога.</p>

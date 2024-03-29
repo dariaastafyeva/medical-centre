@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios";
 import { employees, feedback } from '../testingData/testingData';
@@ -22,6 +22,10 @@ const EmployeeProfile = () => {
     const [experiences, setExperiences] = useState([]);
     const [services, setServices] = useState([]);
     const [schedule, setSchedule] = useState([]);
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
     useEffect(() => {
         const fetchEmployee = async () => {

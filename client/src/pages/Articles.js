@@ -24,7 +24,7 @@ const Articles = () => {
 
     const getMappedCard = (elements) => {
         return (
-            <div className='team-cards'>
+            <div className='article-cards'>
                 {elements.map(element => (
                     <Article
                         article={element}
@@ -38,8 +38,8 @@ const Articles = () => {
 
     return (
         <div className='content--wrapper'>
-            <div className='employees'>
-                <div className='team-group'>
+            <div className='articles'>
+                <div className='article-group'>
                     <h1>
                         Статьи
                     </h1>

@@ -160,6 +160,7 @@ nav {
 .content--wrapper {
     margin-left: 20%;
     margin-right: 20%;
+    min-height: 1080px;
 
 
     h1,
@@ -243,6 +244,150 @@ nav {
         }
     }
 
+    .table {
+        width: 100%;
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .table thead th {
+        font-weight: bold;
+        text-align: left;
+        border: none;
+        padding: 10px 15px;
+        background: #d8d8d8;
+        font-size: 14px;
+    }
+
+    .table thead tr th:first-child {
+        border-radius: 8px 0 0 8px;
+    }
+
+    .table thead tr th:last-child {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .table tbody td {
+        text-align: left;
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background: #f3f3f3;
+    }
+
+    .table tbody tr td:first-child {
+        border-radius: 8px 0 0 8px;
+    }
+
+    .table tbody tr td:last-child {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .team-group,
+    .article-group {
+        padding: 30px;
+        margin-top: 80px;
+
+        h3 {
+            margin-bottom: 30px;
+        }
+
+        .team-cards,
+        .article-cards {
+            display: flex;
+            flex-wrap: wrap;
+
+            img {
+                max-height: 300px;
+            }
+
+            .employee-card,
+            .article-card {
+                flex-basis: 20%;
+                padding-right: 3%;
+
+                .button-about {
+                    margin-top: 10px !important;
+                }
+
+                h4 {
+                    margin-top: 20px;
+                }
+
+
+            }
+
+
+        }
+
+        #all-team {
+            float: right;
+            margin-right: 0;
+        }
+
+        h2 {
+            margin-top: 80px;
+        }
+    }
+
+    .article-card {
+        flex-basis: 20%;
+        margin-right: 4%;
+        align-items: center;
+
+
+        img {
+            max-height: 300px;
+            max-width: 400px;
+            min-width: 400px;
+            object-fit: cover;
+        }
+
+        .tag {
+            display: flex;
+            margin-top: 4%;
+            font-size: 70%;
+            font-weight: bold;
+
+            .tag-name {
+                display: inline;
+                background-color: $lightGrey;
+                box-shadow: -10px 0 0 $lightGrey, 10px 0 0 $lightGrey;
+                padding: 10px 0;
+                margin-right: 10%;
+                margin-left: 3%;
+            }
+
+            .article-duration {
+                padding: 10px 0;
+            }
+        }
+
+        h3 {
+            font-size: 130%;
+        }
+
+        .desc {
+            font-size: 100%;
+        }
+
+        .button-Appointment {
+            background-color: white;
+            color: black;
+            border: 1px solid white;
+
+            &:hover {
+                border: 1px solid black;
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+
 
     .hero-slider {
         display: flex;
@@ -305,53 +450,11 @@ nav {
 
 
         }
+
+
     }
 
-    .team-group {
-        padding: 30px;
-        margin-top: 80px;
-
-        h3 {
-            margin-bottom: 30px;
-        }
-
-        .team-cards {
-            display: flex;
-            flex-wrap: wrap;
-
-            img {
-                max-height: 300px;
-            }
-
-            .employee-card {
-                flex-basis: 20%;
-                padding-right: 3%;
-
-                .button-about {
-                    margin-top: 10px !important;
-                }
-
-                h4 {
-                    margin-top: 20px;
-                }
-
-
-            }
-
-
-        }
-
-        #all-team {
-            float: right;
-            margin-right: 0;
-        }
-
-        h2 {
-            margin-top: 80px;
-        }
-    }
-
-    .articles {
+    .articles-home {
         padding: 30px;
         margin-top: 80px;
 
@@ -362,60 +465,6 @@ nav {
         .article-cards {
             display: flex;
             flex-wrap: wrap;
-
-            .article-card {
-                flex-basis: 20%;
-                margin-right: 4%;
-                align-items: center;
-
-
-                img {
-                    max-height: 300px;
-                    max-width: 400px;
-                    min-width: 400px;
-                    object-fit: cover;
-                }
-
-                .tag {
-                    display: flex;
-                    margin-top: 4%;
-                    font-size: 70%;
-                    font-weight: bold;
-
-                    .tag-name {
-                        display: inline;
-                        background-color: $lightGrey;
-                        box-shadow: -10px 0 0 $lightGrey, 10px 0 0 $lightGrey;
-                        padding: 10px 0;
-                        margin-right: 10%;
-                        margin-left: 3%;
-                    }
-
-                    .article-duration {
-                        padding: 10px 0;
-                    }
-                }
-
-                h3 {
-                    font-size: 130%;
-                }
-
-                .desc {
-                    font-size: 100%;
-                }
-
-                .button-Appointment {
-                    background-color: white;
-                    color: black;
-                    border: 1px solid white;
-
-                    &:hover {
-                        border: 1px solid black;
-                        background-color: white;
-                        color: black;
-                    }
-                }
-            }
         }
     }
 
@@ -456,6 +505,8 @@ nav {
     }
 
 }
+
+// FOOTER
 
 .footer-container {
     display: flex;
@@ -802,6 +853,19 @@ nav {
     }
 }
 
+//SERVICES DETAIL
+
+.services-detail {
+    .service-price-container {
+        .table {
+            p {
+                font-family: "Tenor Sans", sans-serif;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
 // ABOUT
 
 .about {
@@ -838,14 +902,32 @@ nav {
 
 
 // EMPLOYEES
+// ARTICLES
 
-.employees {
+.employees,
+.articles {
     .team-group {
         .employee-card {
             margin-bottom: 120px;
         }
     }
 
+}
+
+.articles {
+
+    .article-cards {
+        gap: 10px;
+
+        .article-card {
+            padding-right: 0 !important;
+        }
+
+        img {
+            min-width: 400px;
+            object-fit: cover;
+        }
+    }
 }
 
 
@@ -938,19 +1020,14 @@ nav {
             .list-element {
                 padding-left: 50px;
                 margin-bottom: 20px;
-                // list-style-image: url("../public/leaf.png");
                 background: url('../public/leaf.png') no-repeat left center;
                 background-size: 30px;
-                // padding: 5px 10px 5px 25px;
-                // padding-right: 5px;
                 padding-top: 10px;
                 list-style: none;
                 margin: 0;
                 vertical-align: middle;
 
             }
-
-            .diagnostics-container {}
 
             .employee-detail-section--block {
                 display: flex;
@@ -974,52 +1051,6 @@ nav {
 
             }
 
-            .service-price-container,
-            .schedule-container {
-                .table {
-                    width: 100%;
-                    border: none;
-                    margin-bottom: 20px;
-                }
-
-                .table thead th {
-                    font-weight: bold;
-                    text-align: left;
-                    border: none;
-                    padding: 10px 15px;
-                    background: #d8d8d8;
-                    font-size: 14px;
-                }
-
-                .table thead tr th:first-child {
-                    border-radius: 8px 0 0 8px;
-                }
-
-                .table thead tr th:last-child {
-                    border-radius: 0 8px 8px 0;
-                }
-
-                .table tbody td {
-                    text-align: left;
-                    border: none;
-                    padding: 10px 15px;
-                    font-size: 14px;
-                    vertical-align: top;
-                }
-
-                .table tbody tr:nth-child(even) {
-                    background: #f3f3f3;
-                }
-
-                .table tbody tr td:first-child {
-                    border-radius: 8px 0 0 8px;
-                }
-
-                .table tbody tr td:last-child {
-                    border-radius: 0 8px 8px 0;
-                }
-            }
-
             // slider
             .slider {
                 overflow: hidden;
@@ -1030,42 +1061,6 @@ nav {
                     height: 100%;
                     transition: transform 0.5s ease-in-out;
                     width: 100%;
-
-                    // .feedback-item--text-container {
-                    //     flex: 1 0 100%;
-                    //     position: relative;
-                    //     background-color: $greyBlue;
-                    //     border-radius: 20px;
-
-                    //     .feedback-item--text-container-inner {
-                    //         padding: 60px;
-
-                    //         .text-overlay {
-                    //             position: relative;
-                    //         }
-
-                    //         .comma,
-                    //         .feedback-text--container {
-                    //             top: 0;
-                    //             left: 0;
-                    //         }
-
-                    //         .comma {
-                    //             fill: $commaColor;
-                    //         }
-
-                    //         .feedback-text--container {
-                    //             position: absolute;
-                    //             padding-top: 20px;
-                    //             padding-left: 20px;
-                    //         }
-                    //     }
-
-                    //     .feedback-author {
-                    //         text-align: right;
-
-                    //     }
-                    // }
                 }
             }
 

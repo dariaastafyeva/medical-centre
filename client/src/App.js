@@ -18,6 +18,7 @@ import Services from './pages/Services';
 import Feedback from './pages/Feedback';
 import Articles from './pages/Articles';
 import ArticleProfile from './pages/ArticleProfile';
+import ServicesDetail from './pages/ServicesDetail';
 
 
 
@@ -73,7 +74,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <Services />,
+        children: [
+          {
+            index: true,
+            element: <Services />,
+          },
+          {
+            path: "/services/:id",
+            element: <ServicesDetail />
+          }
+        ]
       },
       {
         path: "/feedback",

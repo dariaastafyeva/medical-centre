@@ -28,4 +28,19 @@ const getAllServiceGroups = (req, res) => {
     });
 };
 
-export { getEmployeeServices, getAllServiceGroups };
+const getAllServicesBySubGroup = (req, res) => {
+    const q = "SELECT `subGroupName`, `imgName`, tbl_services.id, tbl_services.name AS `serviceName`, `duration`, `price`, `sr_employeeId`, tbl_employees.name AS `employeeName` " +
+        "FROM medcentre.tbl_services JOIN medcentre.tbl_service_sub_groups " +
+        "ON tbl_services.sr_subGroupId = tbl_service_sub_groups.id " +
+        "JOIN medcentre.tbl_employees " +
+        "ON tbl_services.sr_employeeId = tbl_employees.id " +
+        "WHERE tbl_services.sr_subGroupId=?";
+
+    db.query(q, [req.params.id], (err, data) => {
+        if (err) return res.status(500).json(err);
+
+        return res.status(200).json(data);
+    });
+};
+
+export { getEmployeeServices, getAllServiceGroups, getAllServicesBySubGroup };
