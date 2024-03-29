@@ -1,8 +1,9 @@
 import express from "express"
-import { getEmployeeServices } from '../controllers/service.js';
+import { getAllServiceGroups, getEmployeeServices } from '../controllers/service.js';
 
 const router = express.Router();
 
 router.get("/:id", getEmployeeServices);
+router.get("/", getAllServiceGroups)
 
 export default router;

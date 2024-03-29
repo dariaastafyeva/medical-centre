@@ -4,6 +4,7 @@ import axios from "axios";
 import { employees, feedback } from '../testingData/testingData';
 import FeedbackBody from '../components/FeedbackBody';
 import Slider from '../components/slider/Slider';
+import { getFirstLetterUpperCase } from '../utils/Utils';
 
 const EDUCATION = "education";
 const EXPERIENCE = "experience";
@@ -103,7 +104,7 @@ const EmployeeProfile = () => {
                     <tbody>
                         {array.map((element, index) => (
                             <tr key={index}>
-                                <td>{element.name[0].toUpperCase() + element.name.slice(1)}</td>
+                                <td>{getFirstLetterUpperCase(element.name)}</td>
                                 <td>{element.duration}</td>
                                 <td>{element.price}, руб.</td>
                             </tr>
@@ -139,7 +140,7 @@ const EmployeeProfile = () => {
                     <tbody>
                         {array.map((element, index) => (
                             <tr key={index}>
-                                <td>{element.dayOfWeek[0].toUpperCase() + element.dayOfWeek.slice(1)}</td>
+                                <td>{getFirstLetterUpperCase(element.dayOfWeek)}</td>
                                 <td>{element.from && element.from} - {element.to && element.to}</td>
                             </tr>
                         ))}

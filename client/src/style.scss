@@ -79,7 +79,6 @@ nav {
         }
 
         .contacts {
-            // margin-right: 15px;
             color: $contacts;
             display: flex;
             flex-direction: row;
@@ -173,7 +172,6 @@ nav {
     }
 
     h1 {
-        // font-size: 54px;
         font-size: 60px;
 
     }
@@ -201,7 +199,6 @@ nav {
         color: #404040;
         font-size: 20px;
         font-weight: 300;
-        // font-size: 125%;
     }
 
     img {
@@ -256,20 +253,6 @@ nav {
             margin-left: 6%;
             max-width: 700px;
         }
-
-        // .button-Appointment {
-        //     background-color: black;
-        //     color: white;
-        //     border: 1px solid black;
-        //     margin-top: 20px;
-
-        //     &:hover {
-        //         border: 1px solid black;
-        //         background-color: white;
-        //         color: black;
-        //     }
-        // }
-
     }
 
     .description-section {
@@ -292,10 +275,6 @@ nav {
         h2 {
             font-size: 220%;
         }
-
-        // p {
-        //     font-size: 100%;
-        // }
 
         .button-Appointment {
             background-color: white;
@@ -332,13 +311,7 @@ nav {
         padding: 30px;
         margin-top: 80px;
 
-        // p {
-        //     font-size: 100%;
-        // }
-
         h3 {
-            // font-size: 120%;
-            // font-weight: normal;
             margin-bottom: 30px;
         }
 
@@ -359,7 +332,6 @@ nav {
                 }
 
                 h4 {
-                    // font-size: 140%;
                     margin-top: 20px;
                 }
 
@@ -453,8 +425,6 @@ nav {
         width: 1500px;
         height: 400px;
         background: $greyBlue;
-        // overflow: hidden;
-        // background: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url("../public/subscribtionBackground.png");
         color: black;
 
         img {
@@ -470,19 +440,6 @@ nav {
             input {
                 padding: 22px 70px;
             }
-
-            // .button-Appointment {
-            //     background-color: black;
-            //     color: white;
-            //     border: 1px solid black;
-            //     margin-top: 1px;
-
-            //     &:hover {
-            //         border: 1px solid black;
-            //         background-color: white;
-            //         color: black;
-            //     }
-            // }
         }
     }
 
@@ -494,20 +451,7 @@ nav {
 
         .contact-us-block {
 
-            .button-group {
-                // .button-Appointment {
-                //     background-color: black;
-                //     color: white;
-                //     border: 1px solid black;
-                //     margin-top: 1px;
-
-                //     &:hover {
-                //         border: 1px solid black;
-                //         background-color: white;
-                //         color: black;
-                //     }
-                // }
-            }
+            .button-group {}
         }
     }
 
@@ -581,23 +525,64 @@ nav {
 
 //FEEDBACK
 
+// feedback-card
+.feedback-item--text-container {
+    flex: 1 0 100%;
+    position: relative;
+    background-color: $greyBlue;
+    border-radius: 20px;
+
+    .feedback-item--text-container-inner {
+        padding: 60px;
+
+        .text-overlay {
+            position: relative;
+        }
+
+        .comma,
+        .feedback-text--container {
+            top: 0;
+            left: 0;
+        }
+
+        .comma {
+            fill: $commaColor;
+        }
+
+        .feedback-text--container {
+            position: absolute;
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+    }
+
+    .feedback-author {
+        text-align: right;
+
+    }
+}
+
+// feedback page
 .feedback {
-    margin: 50px 30% 0 20%;
+    margin: 50px 0 50px;
 
     .feedback-banner {
         background: $logocolor;
-        color: white;
         padding: 12px 70px;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0 10%;
-
 
         h2 {
+            text-align: center;
+            color: white;
             font-size: 50px;
             margin-bottom: 60px;
+        }
+
+        p {
+            color: white;
         }
 
         .feedback-banner--items {
@@ -627,7 +612,7 @@ nav {
     }
 
     .specialist-filter {
-        margin: 5% 10%;
+        margin-top: 5%;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -721,7 +706,7 @@ nav {
     }
 
     .feedback-items {
-        margin: 5% 10%;
+        margin-top: 5%;
         display: flex;
         flex-direction: column;
         gap: 70px;
@@ -740,29 +725,8 @@ nav {
             }
 
             .feedback-item--text-container {
-                width: 1200px;
-                background-color: $greyBlue;
-                border-radius: 20px;
-                padding: 60px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                gap: 30px;
-
-                .comma {
-                    fill: $commaColor;
-                }
-
-                .feedback-text--container {
-                    position: absolute;
-                    padding-top: 20px;
-                    padding-left: 20px;
-                }
-
-                .feedback-author {
-                    text-align: right;
-
-                }
+                flex: 1 1 75%;
+                ;
             }
         }
     }
@@ -798,28 +762,36 @@ nav {
             display: flex;
             flex-direction: column;
 
-
+            .services-names-section {
+                margin-bottom: 20px;
+            }
 
             .sections-container--column-block {
                 display: flex;
 
-                .adult-section {
+                .service-container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
                     margin-right: 20px;
-                }
-            }
 
-            .service-container {
-                display: flex;
-                margin-bottom: 20px;
-                margin-right: 20px;
+                    .service-container--element {
 
-                img {
-                    max-width: 90px;
-                    max-height: 90px;
-                }
+                        display: flex;
+                        margin-bottom: 20px;
+                        margin-right: 20px;
 
-                p {
-                    margin-left: 20px;
+                        img {
+                            max-width: 90px;
+                            max-height: 90px;
+                        }
+
+                        p {
+                            margin-left: 20px;
+                        }
+                    }
+
+
                 }
             }
         }
@@ -838,7 +810,6 @@ nav {
 
     .subheader {
         text-transform: none;
-        // font-size: 28px;
     }
 
     .about-service-img-container {
@@ -965,24 +936,21 @@ nav {
 
         .employee-detail-section {
             .list-element {
-                    padding-left: 50px;
-                    margin-bottom: 20px;
-                    // list-style-image: url("../public/leaf.png");
-                    background: url('../public/leaf.png') no-repeat left center;
-                    background-size: 30px;
-                    // padding: 5px 10px 5px 25px;
-                    // padding-right: 5px;
-                    padding-top: 10px;
-                    list-style: none;
-                    margin: 0;
-                    vertical-align: middle;
-            
-                }
+                padding-left: 50px;
+                margin-bottom: 20px;
+                // list-style-image: url("../public/leaf.png");
+                background: url('../public/leaf.png') no-repeat left center;
+                background-size: 30px;
+                // padding: 5px 10px 5px 25px;
+                // padding-right: 5px;
+                padding-top: 10px;
+                list-style: none;
+                margin: 0;
+                vertical-align: middle;
 
-            .diagnostics-container {
-
-                
             }
+
+            .diagnostics-container {}
 
             .employee-detail-section--block {
                 display: flex;
@@ -1063,43 +1031,41 @@ nav {
                     transition: transform 0.5s ease-in-out;
                     width: 100%;
 
-                    .feedback-item--text-container {
-                        flex: 1 0 100%;
-                        position: relative;
-                        background-color: $greyBlue;
-                        border-radius: 20px;
+                    // .feedback-item--text-container {
+                    //     flex: 1 0 100%;
+                    //     position: relative;
+                    //     background-color: $greyBlue;
+                    //     border-radius: 20px;
 
-                        .feedback-item--text-container-inner {
-                            padding: 60px;
+                    //     .feedback-item--text-container-inner {
+                    //         padding: 60px;
 
-                            .text-overlay {
-                                position: relative;
-                            }
+                    //         .text-overlay {
+                    //             position: relative;
+                    //         }
 
-                            .comma,
-                            .feedback-text--container {
-                                top: 0;
-                                left: 0;
-                            }
+                    //         .comma,
+                    //         .feedback-text--container {
+                    //             top: 0;
+                    //             left: 0;
+                    //         }
 
-                            .comma {
-                                fill: $commaColor;
-                            }
+                    //         .comma {
+                    //             fill: $commaColor;
+                    //         }
 
-                            .feedback-text--container {
-                                position: absolute;
-                                padding-top: 20px;
-                                padding-left: 20px;
-                            }
-                        }
+                    //         .feedback-text--container {
+                    //             position: absolute;
+                    //             padding-top: 20px;
+                    //             padding-left: 20px;
+                    //         }
+                    //     }
 
+                    //     .feedback-author {
+                    //         text-align: right;
 
-
-                        .feedback-author {
-                            text-align: right;
-
-                        }
-                    }
+                    //     }
+                    // }
                 }
             }
 
