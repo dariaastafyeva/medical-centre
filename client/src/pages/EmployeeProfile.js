@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios";
-import { employees, feedback } from '../testingData/testingData';
-import FeedbackBody from '../components/FeedbackBody';
 import Slider from '../components/slider/Slider';
 import { getFirstLetterUpperCase } from '../utils/Utils';
 

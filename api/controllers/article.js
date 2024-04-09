@@ -11,7 +11,15 @@ const getArticles = (req, res) => {
 };
 
 const getArticle = (req, res) => {
-    res.json("from controller!");
+    const q = "SELECT `img`, `tag`, `title`, `duration`, `desc`, `text` " +
+        "FROM tbl_articles " +
+        "WHERE id=?";
+
+    db.query(q, [req.params.id], (err, data) => {
+        if (err) return res.status(500).json(err);
+
+        return res.status(200).json(data[0]);
+    });
 };
 
 export { getArticles, getArticle};

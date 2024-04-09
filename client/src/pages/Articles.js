@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import axios from "axios"
 import Article from '../components/Article';
 
@@ -6,6 +6,10 @@ import Article from '../components/Article';
 const Articles = () => {
 
     const [articles, setArticles] = useState([]);
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
     useEffect(() => {
         const fetchData = async () => {

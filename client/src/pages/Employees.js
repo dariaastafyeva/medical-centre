@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import axios from "axios"
 import EmployeeCard from '../components/EmployeeCard';
 import { employees } from '../testingData/testingData';
@@ -7,6 +7,9 @@ import { employees } from '../testingData/testingData';
 const Employees = () => {
 
     const [employees, setEmployees] = useState([]);
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
     useEffect(() => {
         const fetchData = async () => {

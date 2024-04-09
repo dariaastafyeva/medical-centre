@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Article = ({ article, isShowButton }) => {
   return (
@@ -10,8 +11,9 @@ const Article = ({ article, isShowButton }) => {
       </div>
       <h3>{article.title}</h3>
       <p className='desc'>{article.desc}</p>
-
-      {isShowButton && <button type='button' className='button-Appointment'>Читать</button>}
+      <Link to={`/articles/${article.id}`}>
+        {isShowButton && <button type='button' className='button-Appointment'>Читать</button>}
+      </Link>
     </div>
   )
 }

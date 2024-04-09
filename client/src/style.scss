@@ -1104,3 +1104,28 @@ nav {
         }
     }
 }
+
+.article-card {
+    
+    .article-banner{
+        display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    }
+
+    .article-content{
+        margin-top: 80px;
+        text-indent: 40px;
+        text-align: justify;
+
+        pre{
+            font-family: "Tilda Sans",
+                    Arial,
+                    sans-serif;
+                color: #404040;
+                font-size: 20px;
+                font-weight: 300;
+                white-space: pre-wrap;
+        }
+    }
+}
