@@ -1,11 +1,27 @@
 import axios from 'axios';
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import RouteHistory from '../components/RouteHistory';
+
 
 const ArticleProfile = () => {
 
   const location = useLocation();
   const articleId = location.pathname.split('/')[2];
+  const arrayOfRoutes = [
+    {
+      link: "/",
+      name: "Главная",
+    },
+    {
+      link: "/articles",
+      name: "Статьи",
+    },
+    {
+      link: `/articles/${articleId}`,
+      name: "Статья",
+    },
+  ];
 
   const [article, setArticle] = useState({});
 
@@ -28,9 +44,27 @@ const ArticleProfile = () => {
     }
     fetchData();
   }, [articleId])
-
+  
   return (
     <div className='content--wrapper'>
+      <RouteHistory 
+        arrayOfObjects={arrayOfRoutes}
+      />
+
+      <div>
+        <p>
+          <Link to={'/'}>
+          home
+        </Link>
+        <Link to={'/articles'}>
+          / articles
+        </Link>
+          <Link to={'/articles/1'}>
+            / article
+          </Link>
+        </p>
+        
+      </div>
       <div className='profile'>
         <div className='article-card'>
           <div className='article-banner'>

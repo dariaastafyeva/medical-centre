@@ -1,7 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import axios from "axios"
 import EmployeeCard from '../components/EmployeeCard';
-import { employees } from '../testingData/testingData';
 
 
 const Employees = () => {
