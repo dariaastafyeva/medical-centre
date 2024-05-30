@@ -1,11 +1,19 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import axios from "axios"
 import Article from '../components/Article';
+import RouteHistory from '../components/RouteHistory';
 
 
 const Articles = () => {
 
     const [articles, setArticles] = useState([]);
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        }
+    ];
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
@@ -29,10 +37,11 @@ const Articles = () => {
     const getMappedCard = (elements) => {
         return (
             <div className='article-cards'>
-                {elements.map(element => (
+                {elements.map((element, index) => (
                     <Article
                         article={element}
                         isShowButton={isShowButton}
+                        key={index}
                     />
                 ))}
             </div>
@@ -42,6 +51,9 @@ const Articles = () => {
 
     return (
         <div className='content--wrapper'>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='articles'>
                 <div className='article-group'>
                     <h1>

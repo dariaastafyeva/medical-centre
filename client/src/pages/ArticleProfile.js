@@ -17,10 +17,6 @@ const ArticleProfile = () => {
       link: "/articles",
       name: "Статьи",
     },
-    {
-      link: `/articles/${articleId}`,
-      name: "Статья",
-    },
   ];
 
   const [article, setArticle] = useState({});
@@ -51,19 +47,7 @@ const ArticleProfile = () => {
         arrayOfObjects={arrayOfRoutes}
       />
 
-      <div>
-        <p>
-          <Link to={'/'}>
-          home
-        </Link>
-        <Link to={'/articles'}>
-          / articles
-        </Link>
-          <Link to={'/articles/1'}>
-            / article
-          </Link>
-        </p>
-        
+      <div>        
       </div>
       <div className='profile'>
         <div className='article-card'>

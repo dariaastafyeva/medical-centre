@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios";
 import Slider from '../components/slider/Slider';
 import { getFirstLetterUpperCase } from '../utils/Utils';
+import RouteHistory from '../components/RouteHistory';
 
 const EDUCATION = "education";
 const EXPERIENCE = "experience";
@@ -15,6 +16,18 @@ const EmployeeProfile = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const employeeId = location.pathname.split('/')[2];
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        },
+        {
+            link: "/employees",
+            name: "Специалисты",
+        },
+    ];
+
 
     const [employee, setEmployee] = useState({});
     const [experiences, setExperiences] = useState([]);
@@ -164,6 +177,9 @@ const EmployeeProfile = () => {
 
     return (
         <div className='content--wrapper'>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='profile'>
                 <div className='employee-banner'>
                     <div className='employee-content'>

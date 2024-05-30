@@ -3,12 +3,20 @@ import React, { useEffect, useState } from 'react'
 // import { employees, feedback } from '../testingData/testingData';
 import FeedbackCard from '../components/FeedbackCard';
 import axios from 'axios';
+import RouteHistory from '../components/RouteHistory';
 
 const Feedback = () => {
 
     const [selectedItem, setSelectedItem] = useState(0);
     const [feedbacks, setFeedbacks] = useState([]);
     const [employees, setEmployees] = useState([]);
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        },
+    ];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -94,6 +102,9 @@ const Feedback = () => {
 
     return (
         <div className='content--wrapper '>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='feedback'>
                 <div className='feedback-banner'>
                     <h2>Служба заботы о пациентах</h2>

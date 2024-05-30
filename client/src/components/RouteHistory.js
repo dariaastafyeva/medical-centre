@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const RouteHistory = (arrayOfObjects) => {
+const RouteHistory = (props) => {
 
-    console.log(arrayOfObjects)
     const getRouteWhithLinks = () => {
         return (
-            <p>
-                {arrayOfObjects.length && arrayOfObjects.map((object, index) => (
-                    <Link to={object.route}>
-                        {index === 0 ? object.text : `/ ${object.text}`}
+            <p className='route-history'>
+                {props.arrayOfObjects.map((object, index) => (
+                    <Link to={object.link} key={index} className='link'>
+                        {`< ${object.name} `}
                     </Link>
                 ))}
             </p>

@@ -2,12 +2,24 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { getFirstLetterUpperCase } from '../utils/Utils';
+import RouteHistory from '../components/RouteHistory';
 
 const ServicesDetail = () => {
 
     const location = useLocation();
     const subServiceId = location.pathname.split('/')[2];
     const [services, setServices] = useState([]);
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        },
+        {
+            link: "/services",
+            name: "Услуги",
+        },
+    ];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -104,6 +116,9 @@ const ServicesDetail = () => {
 
     return (
         <div className='content--wrapper'>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='services-detail'>
                 <h1>{services[0]?.subGroupName}</h1>
                 <p>Все услуги категории "{services[0]?.subGroupName}":</p>

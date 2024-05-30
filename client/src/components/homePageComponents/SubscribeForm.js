@@ -6,7 +6,7 @@ const SubscribeForm = () => {
             <h1>Узнавайте новости первыми</h1>
             <p>Подпишитесь на нашу рассылку для получения советов по здоровью, новостей и обновлений от Медицинского центра.</p>
 
-            <label for='email'>Адрес вашей электронной почты</label>
+            <label htmlFor='email'>Адрес вашей электронной почты</label>
             <div className='input-group'>
                 <input type='text' name='email'></input>
                 <button className='button-Appointment'>Присоединиться</button>

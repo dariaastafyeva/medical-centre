@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 
 import AdvertSection from '../components/homePageComponents/AdvertSection'
 import DecsriptionSection from '../components/homePageComponents/DecsriptionSection'
@@ -9,6 +9,10 @@ import Booking from '../components/homePageComponents/Booking'
 import Login from './Login'
 
 const Home = () => {
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
   return (
     <div className='content--wrapper'>
       <AdvertSection />

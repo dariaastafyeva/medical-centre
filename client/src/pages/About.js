@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
+import RouteHistory from '../components/RouteHistory';
 
 const About = () => {
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        },
+    ];
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     return (
         <div className='content--wrapper'>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='about'>
                 <h2>О компании</h2>
                 <div className='about-service-img-container'>
@@ -36,23 +52,23 @@ const About = () => {
                     <div className='services-container-group'>
                         <img src='/servicesItems/manual-massage.png' alt="Массаж"></img>
                         <ul>
-                            <li key=''>Мануальная терапия</li>
-                            <li key=''>Карбокситерапия</li>
-                            <li key=''>Массаж</li>
+                            <li key='0'>Мануальная терапия</li>
+                            <li key='1'>Карбокситерапия</li>
+                            <li key='2'>Массаж</li>
                         </ul>
                     </div>
                     <div className='services-container-group'>
                         <img src='/servicesItems/manual-reflexology.png' alt="Массаж"></img>
                         <ul>
-                            <li key=''>Рефлексотерапия</li>
-                            <li key=''>Физиотерапия</li>
+                            <li key='0'>Рефлексотерапия</li>
+                            <li key='1'>Физиотерапия</li>
                         </ul>
                     </div>
                     <div className='services-container-group'>
                         <img src='/servicesItems/manual-voyto.png' alt="Массаж"></img>
                         <ul>
-                            <li key=''>Войта-терапия</li>
-                            <li key=''>Боббат-терапия</li>
+                            <li key='0'>Войта-терапия</li>
+                            <li key='1'>Боббат-терапия</li>
                         </ul>
                     </div>
                 </div>
@@ -63,9 +79,9 @@ const About = () => {
                     Наши специалисты разработали эффективные схемы лечебно-профилактических мероприятий для основных направлений, таких как:
                 </h3>
                 <ul>
-                    <li key=''>Заболевания опорно-двигательного аппарата (например, остеохондроз)</li>
-                    <li key=''>Заболевания сердечно-сосудистой системы (включая гипертоническую болезнь и ишемическую болезнь сердца)</li>
-                    <li key=''>Варикозная болезнь ног (ХВН)</li>
+                    <li key='0'>Заболевания опорно-двигательного аппарата (например, остеохондроз)</li>
+                    <li key='1'>Заболевания сердечно-сосудистой системы (включая гипертоническую болезнь и ишемическую болезнь сердца)</li>
+                    <li key='2'>Варикозная болезнь ног (ХВН)</li>
                 </ul>
                 <p>
                     Мы гордимся нашим опытом и профессионализмом наших специалистов, которые всегда готовы оказать квалифицированную помощь и заботу каждому пациенту. Доверьтесь нам, и мы поможем вам достичь здоровья и долголетия!

@@ -1,9 +1,17 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import axios from "axios"
 import EmployeeCard from '../components/EmployeeCard';
+import RouteHistory from '../components/RouteHistory';
 
 
 const Employees = () => {
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        },
+    ];
 
     const [employees, setEmployees] = useState([]);
     useLayoutEffect(() => {
@@ -40,6 +48,9 @@ const Employees = () => {
 
     return (
         <div className='content--wrapper'>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='employees'>
                 <div className='team-group'>
                     <h1>

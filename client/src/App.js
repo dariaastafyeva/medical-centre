@@ -20,6 +20,7 @@ import Articles from './pages/Articles';
 import ArticleProfile from './pages/ArticleProfile';
 import ServicesDetail from './pages/ServicesDetail';
 import { useLayoutEffect } from 'react';
+import Appointment from './pages/Appointment';
 
 
 
@@ -90,9 +91,14 @@ const router = createBrowserRouter([
         path: "/feedback",
         element: <Feedback />,
       },
-      
+      {
+        path: "/appointment",
+        element: <Appointment />,
+      },
+
     ]
   },
+
   {
     path: "/register",
     element: <Registration />,

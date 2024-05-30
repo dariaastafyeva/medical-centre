@@ -1,11 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { getFirstLetterUpperCase } from '../utils/Utils';
 import { Link } from 'react-router-dom';
+import RouteHistory from '../components/RouteHistory';
 
 const Services = () => {
 
     const [services, setServices] = useState([]);
+
+    const arrayOfRoutes = [
+        {
+            link: "/",
+            name: "Главная",
+        },
+    ];
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,26 +60,34 @@ const Services = () => {
                         <div className='service-container'>
                             {
                                 subGroupArray.map((subGroup, index) => (
-                                    index < 4 && 
-                                    <Link to={`/services/${subGroup.id}`} key={index}>
-                                        <div className='service-container--element' >
-                                            <img src={`/servicesItems/${subGroup.imgName}.png`} alt='иконка к услуге'></img>
-                                            <p>{getFirstLetterUpperCase(subGroup.subGroupName)}</p>
+                                    index < 4 &&
+                                    <div className='container-wrapper'>
+                                        <div className='link-wrapper'>
+                                            <Link to={`/services/${subGroup.id}`} key={index} className='service-link'>
+                                                <div className='service-container--element' >
+                                                    <img src={`/servicesItems/${subGroup.imgName}.png`} alt='иконка к услуге'></img>
+                                                    <p>{getFirstLetterUpperCase(subGroup.subGroupName)}</p>
+                                                </div>
+                                            </Link>
                                         </div>
-                                    </Link>
+                                    </div>
                                 ))
                             }
                         </div>
                         <div className='service-container'>
                             {
                                 subGroupArray.map((subGroup, index) => (
-                                    index >= 4 && 
-                                    <Link to={`/services/${subGroup.id}`} key={index}>
-                                        <div className='service-container--element' >
-                                            <img src={`/servicesItems/${subGroup.imgName}.png`} alt='иконка к услуге'></img>
-                                            <p>{getFirstLetterUpperCase(subGroup.subGroupName)}</p>
+                                    index >= 4 &&
+                                    <div className='container-wrapper'>
+                                        <div className='link-wrapper'>
+                                            <Link to={`/services/${subGroup.id}`} key={index} className='service-link'>
+                                                <div className='service-container--element' >
+                                                    <img src={`/servicesItems/${subGroup.imgName}.png`} alt='иконка к услуге'></img>
+                                                    <p>{getFirstLetterUpperCase(subGroup.subGroupName)}</p>
+                                                </div>
+                                            </Link>
                                         </div>
-                                    </Link>
+                                    </div>
                                 ))
                             }
                         </div>
@@ -77,12 +97,18 @@ const Services = () => {
                         <div className='service-container'>
                             {
                                 subGroupArray.map((subGroup, index) => (
-                                    <Link to={`/services/${subGroup.id}`} key={index}>
-                                        <div className='service-container--element' >
-                                            <img src={`/servicesItems/${subGroup.imgName}.png`} alt='иконка к услуге'></img>
-                                            <p>{getFirstLetterUpperCase(subGroup.subGroupName)}</p>
+                                    <div className='container-wrapper'>
+                                        <div className='link-wrapper'>
+                                            <Link to={`/services/${subGroup.id}`} key={index} className='service-link'>
+                                                <div className='service-container--element' >
+                                                    <img src={`/servicesItems/${subGroup.imgName}.png`} alt='иконка к услуге'></img>
+                                                    <p>{getFirstLetterUpperCase(subGroup.subGroupName)}</p>
+                                                </div>
+                                            </Link>
                                         </div>
-                                    </Link>
+                                    </div>
+
+
                                 ))
                             }
                         </div>
@@ -114,6 +140,9 @@ const Services = () => {
 
     return (
         <div className='content--wrapper'>
+            <RouteHistory
+                arrayOfObjects={arrayOfRoutes}
+            />
             <div className='services'>
                 <h1>Услуги</h1>
                 {getListOfServicesElement(services)}

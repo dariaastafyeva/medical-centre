@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha './src/tests/*.test.js'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,6 +42,8 @@
     ]
   },
   "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0",
     "sass": "^1.71.1"
   },
   "proxy": "http://localhost:8800/api/"

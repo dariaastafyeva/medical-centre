@@ -80,6 +80,17 @@ const Nabvar = () => {
                   </div>
                 </li>
               </Link>
+              <Link to="/appointment">
+                <li className='head-nav--item'>
+                  <div className='link head-nav--link'>
+                    <span className='link--cont'>
+                      <span className='link--text'>Запись</span>
+                      <span className='link--icon'>
+                      </span>
+                    </span>
+                  </div>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

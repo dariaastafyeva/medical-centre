@@ -1,16 +1,21 @@
 import React from 'react'
 
 import { Logo } from './Logo.js'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <div className='footer-container'>
 
       <div className='footer'>
-        <Logo />
+        <Link to="/" >
+          <Logo />
+        </Link>
         <div className='text' >
           <h3>О&nbsp;компании</h3>
-          <p>Услуги</p>
+          <Link to="/services">
+            <p>Услуги</p>
+          </Link>
           <p>Контакты</p>
           <p>Запись</p>
           <p>FAQs</p>
@@ -39,8 +44,8 @@ const Footer = () => {
           <h5>Присоединяясь, вы соглашаетесь с нашими Положениями и условиями.</h5>
         </div>
       </div>
-      
-      <hr/>
+
+      <hr />
 
       <div className='rights'>
         <p>© 2023 AstaGroup. Все права защищены.</p>

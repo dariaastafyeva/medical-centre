@@ -27,7 +27,7 @@ const TeamGroup = () => {
         return (
             <div className='team-cards'>
                 {elements.map((element, index) => (
-                    index < 4 && <EmployeeCard employee={element} />
+                    index < 4 && <EmployeeCard employee={element} key={index}/>
                 ))}
             </div>
 
