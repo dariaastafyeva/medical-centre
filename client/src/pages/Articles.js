@@ -39,9 +39,9 @@ const Articles = () => {
             <div className='article-cards'>
                 {elements.map((element, index) => (
                     <Article
+                        key={index}
                         article={element}
                         isShowButton={isShowButton}
-                        key={index}
                     />
                 ))}
             </div>

@@ -5,6 +5,7 @@ import experienceRoutes from "./routes/experiences.js"
 import serviceRoutes from "./routes/services.js"
 import scheduleRoots from "./routes/schedules.js"
 import feedbackRoutes from "./routes/feedbacks.js"
+import authRoutes from "./routes/auth.js"
 
 const app = express();
 
@@ -16,6 +17,9 @@ app.use('/api/experiences', experienceRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/feedbacks', feedbackRoutes);
 app.use('/api/schedule', scheduleRoots);
+app.use("/api/auth", authRoutes);
+
+
 
 app.listen(8800, () => {
     console.log("connected!");
