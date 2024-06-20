@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 
 export const AuthContext = createContext();
 
@@ -8,14 +8,18 @@ export const AuthContextProvider = ({ children }) => {
         JSON.parse(localStorage.getItem("user")) || null
     );
 
+    const userIcon = useRef(currentUser !== null ? "/logged-icon.png" : "/login-icon.png");
+
     const login = async (inputs) => {
         const res = await axios.post("/auth/login", inputs)
         setCurrentUser(res.data);
+        userIcon.current = "/logged-icon.png";
     }
 
-    const logout = async (inputs) => {
-        await axios('/auth/logout', inputs)
+    const logout = async () => {
+        await axios.post('/auth/logout')
         setCurrentUser(null)
+        userIcon.current = "/login-icon.png";
     }
 
     useEffect(() => {
@@ -23,7 +27,7 @@ export const AuthContextProvider = ({ children }) => {
     }, [currentUser]);
 
     return (
-        <AuthContext.Provider value={{ currentUser, login, logout }}>
+        <AuthContext.Provider value={{ currentUser, userIcon, login, logout }}>
             {children}
         </AuthContext.Provider>
     )

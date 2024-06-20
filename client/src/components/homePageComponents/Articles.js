@@ -27,7 +27,7 @@ const Articles = () => {
         return (
             <div className='article-cards'>
                 {elements.map((element, index) => (        
-                    index < numberOfElements && <Article article={element} />
+                    index < numberOfElements && <Article key={index} article={element} />
                 ))}
             </div>
 
